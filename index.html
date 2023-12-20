@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Website</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="openCameraApp()">Camera</button>
+
+<script>
+    function openCameraApp() {
+        // Check if the feature is available
+        if ('intent' in document.createElement('input')) {
+            // Create an intent for the camera
+            var cameraIntent = document.createElement('input');
+            cameraIntent.setAttribute('type', 'file');
+            cameraIntent.setAttribute('accept', 'image/*');
+            
+            // Trigger the intent
+            cameraIntent.click();
+        } else {
+            alert("Opening camera app is not supported on this device.");
+        }
+    }
+</script>
+
+</body>
+</html>
